@@ -1,0 +1,107 @@
+title: "OKE & MDS & Operatior VM"
+dscription: "OKE & MDS & Operatior VM"
+schemaVersion: 1.6.0
+version: "20211220"
+locale: "en"
+
+
+variableGroups:
+  - title: "Identity Configuration (Hidden)"
+    visible: false
+    variables:
+      - tenancy_ocid
+      - compartment_ocid
+      - region
+
+  - title: MySQL Data Service Configuration
+    visible: true
+    variables:
+      - mds_instance_name
+      - mysql_db_system_admin_username
+      - mysql_db_system_admin_password
+      - mysql_shape_name
+      - deploy_mds_ha
+
+  - title: MySQL Data Service Configuration (Hidden)
+    visible: false
+    variables:
+      - mysql_data_storage_in_gb
+
+  - title: Kubernetes Cluster Configuration
+    visible: true
+    variables:
+      - kube_cluster_name
+      - kube_version
+      - node_shape
+      - node_shape_ocpus
+      - node_shape_memory
+      - node_pool_ssh_public_key
+
+  - title: "OKE Operator Configuration"
+    visible: true
+    variables:
+      - operator_shape
+      - operator_shape_ocpus
+      - operator_shape_memory
+      - operator_ssh_public_key
+      - operator_ssh_private_key_path
+      - operator_os
+      - operator_os_version
+
+variables:
+
+  mysql_db_system_admin_username:
+    type: string
+    required: true
+    title: MDS Admin Username
+    description: MySQL Database Service's admin username
+    minLength: 1
+    maxLength: 14
+    pattern: "^[a-zA-Z][a-zA-Z0-9]+$"
+
+  mysql_db_system_admin_password:
+    type: password
+    required: true
+    title: MDS Admin User's Password
+    description: Password for MySQL Database Service's admin user
+    pattern: "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\\\"\\\\|,.<>\\/?]).{8,32}$"
+
+  mds_instance_name:
+    type: string
+    required: true
+    title: MySQL Database Service Instance's name
+
+  mysql_shape_name:
+    type: string
+    required: true
+    title: "Shape for the MDS Instance"
+
+  deploy_mds_ha:
+    title: Deploy High Availability for MDS
+    type: boolean
+    default: false
+
+  kube_cluster_name:
+    type: string
+    required: true
+    title: Kubernetes Cluster's name
+
+  kube_version:
+    type: string
+    required: true
+    title: Kubernetes Version
+
+  node_shape:
+    type: string
+    required: true
+    title: Shape of Worker Node
+
+  node_shape_ocpus:
+    type: string
+    required: true
+    title: OCPU per Worker Node
+
+  node_shape_memory:
+    type: string
+    required: true
+    title: Memory per Worker Node
