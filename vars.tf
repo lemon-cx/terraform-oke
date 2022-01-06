@@ -41,11 +41,13 @@ variable "mysql_db_system_admin_password" {
 }
 
 variable "mysql_shape_name" {
-    default = "MySQL.VM.Standard.E3.1.8GB"
+    #default = "MySQL.VM.Standard.E3.1.8GB"
+    default = "MySQL.HeatWave.VM.Standard.E3"
 }
 
 variable "mysql_data_storage_in_gb" {
-    default = 50
+    #default = 50
+    default = 1024
 }
 
 variable "deploy_mds_ha" {
