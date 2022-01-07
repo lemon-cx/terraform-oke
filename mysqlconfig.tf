@@ -3,7 +3,6 @@ data "template_file" "install_mysqlsh" {
   template = file("${path.module}/scripts/install_mysqlsh.template.sh")
 
   vars = {
-    mysql_version = "8.0.25"
     user = "opc"
   }
 }

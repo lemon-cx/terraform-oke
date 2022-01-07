@@ -20,7 +20,6 @@ variableGroups:
       - mysql_db_system_admin_username
       - mysql_db_system_admin_password
       - mysql_shape_name
-      - deploy_mds_ha
 
   - title: MySQL Data Service Configuration (Hidden)
     visible: false
@@ -75,11 +74,6 @@ variables:
     type: string
     required: true
     title: "Shape for the MDS Instance"
-
-  deploy_mds_ha:
-    title: Deploy High Availability for MDS
-    type: boolean
-    default: false
 
   kube_cluster_name:
     type: string
