@@ -34,34 +34,3 @@ resource "null_resource" "install_kubectl_operator" {
   }
 
 }
-
-# helm
-data "template_file" "install_helm" {
-  template = file("${path.module}/scripts/install_helm.template.sh")
-}
-
-resource null_resource "install_helm_operator" {
-  connection {
-    host        = oci_core_instance.operator.public_ip
-    private_key = file(var.operator_ssh_private_key_path)
-    timeout     = "40m"
-    type        = "ssh"
-    user        = "opc"
-
-  }
-
-  depends_on = [null_resource.install_kubectl_operator, null_resource.write_kubeconfig_on_operator]
-
-  provisioner "file" {
-    content     = data.template_file.install_helm.rendered
-    destination = "~/install_helm.sh"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x $HOME/install_helm.sh",
-      "bash $HOME/install_helm.sh",
-      "rm -f $HOME/install_helm.sh"
-    ]
-  }
-}
