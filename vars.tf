@@ -8,7 +8,7 @@ variable region { }
 
 #oke
 variable kube_cluster_name { default = "oke_cluster" }
-variable kube_version { default = "v1.20.11" }
+variable kube_version { default = "v1.21.5" }
 variable node_shape { default = "VM.Standard.E4.Flex" }
 variable node_shape_ocpus { default = 1 }
 variable node_shape_memory { default = 8 }
