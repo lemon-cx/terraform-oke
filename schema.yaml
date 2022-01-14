@@ -25,6 +25,7 @@ variableGroups:
     visible: false
     variables:
       - mysql_data_storage_in_gb
+      - deploy_mds_ha
 
   - title: Kubernetes Cluster Configuration
     visible: true
