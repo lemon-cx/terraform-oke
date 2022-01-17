@@ -63,7 +63,7 @@ variables:
     type: password
     required: true
     title: MDS Admin User's Password
-    description: Password for MySQL Database Service's admin user
+    description: Password for MySQL Database Service's admin user (Default password is Oracle#123)
     pattern: "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\\\"\\\\|,.<>\\/?]).{8,32}$"
 
   mds_instance_name:
