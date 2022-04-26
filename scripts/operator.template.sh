@@ -9,6 +9,6 @@ else
   yum -y -t update --security
   yum install -y python36-oci-cli
 fi
-
+echo "OCI CLI successfully installed !"
 sed -i -e "s/autoinstall\s=\sno/autoinstall = yes/g" /etc/uptrack/uptrack.conf
 uptrack-upgrade -y

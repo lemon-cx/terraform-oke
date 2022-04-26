@@ -37,7 +37,7 @@ variable "mysql_db_system_admin_username" {
 variable "mysql_db_system_admin_password" {
   description = "Password for the admin user for MySQL Database Service"
   type        = string
-  default     = "Oracle#123"
+  default     = "Jamesql#1234"
 }
 
 variable "mysql_shape_name" {
@@ -47,7 +47,7 @@ variable "mysql_shape_name" {
 
 variable "mysql_data_storage_in_gb" {
     #default = 50
-    default = 1024
+    default = 512
 }
 
 variable "deploy_mds_ha" {
