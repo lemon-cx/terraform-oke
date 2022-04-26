@@ -1,4 +1,4 @@
-# terraform-oke-mds
+# terraform-oke
 
 Provision Oracle Container Engine for Kubernetes (OKE) and MySQL Database Service (MDS) with Terraform.
 

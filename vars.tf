@@ -47,7 +47,7 @@ variable "mysql_shape_name" {
 
 variable "mysql_data_storage_in_gb" {
     #default = 50
-    default = 700
+    default = 512
 }
 
 variable "deploy_mds_ha" {
